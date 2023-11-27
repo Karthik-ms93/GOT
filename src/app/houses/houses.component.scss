@@ -1,0 +1,15 @@
+.card {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card {
+    height: fit-content;
+    width:fit-content;
+}
+
+mat-card {
+    background-color: #94a5a8;
+}

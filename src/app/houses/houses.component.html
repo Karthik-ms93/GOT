@@ -1,0 +1,31 @@
+<div class="card">
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Below is the list of Houses</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+            <mat-list>
+                <mat-list-item *ngFor = "let house of listOfHouses$ | async">
+                    <span>
+                        <button 
+                            mat-button 
+                            (click)="showTheDetailsOfHouse(house)">{{house.name}}
+                        </button>
+                    </span> 
+                </mat-list-item>
+            </mat-list>
+        </mat-card-actions>
+    </mat-card>
+    
+    <mat-card *ngIf="showDetailsOfaHouse" class="card-of-details">
+        <mat-card-header>
+          <mat-card-title>Below are the details:</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+            <mat-list>
+                <mat-list-item>NAME: {{houseSelected.name}}</mat-list-item>
+                <mat-list-item *ngFor = "let member of houseSelected.members">{{member.name}}</mat-list-item>
+            </mat-list>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,38 @@
+<div class="card">
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Below is the list of Characters</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+            <mat-list>
+                <mat-list-item *ngFor = "let character of listOfCharacters$ | async">
+                    <span *ngIf="character.house" >
+                        <button 
+                            mat-button 
+                            (click)="showTheDetailsOfCharacter(character)">{{character.name}}
+                        </button> from {{character.house.slug}} 
+                    </span> 
+                    <span *ngIf="!character.house" >
+                        <button 
+                            mat-button 
+                            (click)="showTheDetailsOfCharacter(character)">{{character.name}}
+                        </button>    
+                    </span>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-actions>
+    </mat-card>
+    
+    <mat-card *ngIf="showDetailsOfaCharacter" class="card-of-details">
+        <mat-card-header>
+          <mat-card-title>Below are the details:</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+            <mat-list>
+                <mat-list-item>NAME: {{personSelected.name}}</mat-list-item>
+                <mat-list-item>HOUSE: {{personSelected.house.name}}</mat-list-item>
+                <mat-list-item *ngFor = "let quote of personSelected.quotes">{{quote}}</mat-list-item>
+            </mat-list>
+        </mat-card-actions>
+    </mat-card>
+</div>

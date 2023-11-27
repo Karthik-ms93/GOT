@@ -1,0 +1,22 @@
+<body>
+  <h1 class="header">{{title}}</h1>
+  <div class="items">
+    <a 
+      class="button"
+      routerLink="/houses-list" 
+      routerLinkActive="active" 
+      ariaCurrentWhenActive="page">Houses</a>
+    <a 
+      class="button"
+      routerLink="/persons-list" 
+      routerLinkActive="active" 
+      ariaCurrentWhenActive="page">Persons</a>
+    <a 
+      class="button"
+      routerLink="/quotes-list" 
+      routerLinkActive="active" 
+      ariaCurrentWhenActive="page">Quotes</a>
+  </div>
+
+  <router-outlet></router-outlet>
+</body>
