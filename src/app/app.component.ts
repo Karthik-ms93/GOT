@@ -7,6 +7,7 @@ import { PersonsComponent } from "./persons/persons.component";
 import { QuotesComponent } from "./quotes/quotes.component";
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
     selector: 'app-root',
@@ -22,25 +23,13 @@ import {MatListModule} from '@angular/material/list';
               QuotesComponent, 
               MatCardModule,
               MatListModule,
-              MatButtonModule]
+              MatButtonModule,
+              MatSelectModule]
 })
 export class AppComponent {
   title = 'GAME OF THRONES';
 
   constructor() {
-
-  }
-
-  dispalyHouses(): void {
-
-  }
-
-  dispalyPersons(): void {
-    
-  }
-
-  dispalyQuotes(): void {
-    
   }
 
 }

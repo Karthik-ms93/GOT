@@ -4,5 +4,5 @@ export interface Person {
     name: string;
     slug: string;
     house: House;
-    quotes: string[];
+    quotes: any[];
 }

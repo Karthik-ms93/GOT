@@ -1,15 +1,20 @@
 .card {
-    width: 800px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.card {
-    height: fit-content;
-    width:fit-content;
+    gap: 1rem;
 }
 
 mat-card {
-    background-color: #94a5a8;
+    background-color: #678186;
+    border: 0.25px solid #080808;
+    height: 50%; 
 }
+
+.card-one{
+    width: 25%;
+    overflow-y: auto;
+}
+
+.button {
+    background-color: #88a7ad; 
+    color: black 
+  }

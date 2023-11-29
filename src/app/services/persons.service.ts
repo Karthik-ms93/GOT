@@ -16,8 +16,8 @@ export class PersonsService {
   }
 
   // get the character's details with his quotes
-  public getDetailsOFCharacter(): Observable<any[]> {
-    return this.http.get<any>('https://api.gameofthronesquotes.xyz/v1/character/jon');
+  public getDetailsOFCharacter(slug: string): Observable<any> {
+      return this.http.get<any>('https://api.gameofthronesquotes.xyz/v1/character/'+ slug); 
   }
 
 }

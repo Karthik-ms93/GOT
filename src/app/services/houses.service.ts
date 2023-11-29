@@ -15,8 +15,8 @@ export class HousesService {
   }
 
   // get house's details
-  public getDetailsofHouse(): Observable<any[]> {  
-    return this.http.get<any>('https://api.gameofthronesquotes.xyz/v1/house/lannister');
+  public getDetailsofHouse(slug:string): Observable<any> {  
+    return this.http.get<any>('https://api.gameofthronesquotes.xyz/v1/house/'+slug);
   }
 
 

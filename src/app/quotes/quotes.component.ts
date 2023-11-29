@@ -1,40 +1,38 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient , HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { QuotesService } from '../services/quotes.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-quotes',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, MatListModule, MatCardModule, MatButtonModule],
   templateUrl: './quotes.component.html',
   styleUrl: './quotes.component.scss',
   providers: [QuotesService]
 })
+
 export class QuotesComponent {
+
+  listOfQuotes$: Observable<any[]>| undefined;
+
   constructor(
-    private http: HttpClient,
     private quotesService: QuotesService
     ) {}
 
-  ngOnInit() {      
-    // Simple GET request with response type <any>
-    this.quotesService.getRandomQuote().subscribe(randomQuote=>{
-      console.log("The random quote is");
-      console.log(randomQuote);
+  ngOnInit() {    
+    this.listOfQuotes$ = this.quotesService.getSeveralRandomQuotes();  
+    this.listOfQuotes$.subscribe(Quotes => {
+       console.log(Quotes); 
     })
+  }
 
-    this.quotesService.getQuotesFromCharacter().subscribe(quotesFromCharacter=> {
-      console.log("Quotes From a Character are");
-      console.log(quotesFromCharacter);
-    })
-    
-    this.quotesService.getSeveralRandomQuotes().subscribe(severalRandomQuotes=> {
-      console.log("several random Quotes are")
-      console.log(severalRandomQuotes);
-    })
-    
-   
+  getNextRandomQuotes() {
+    this.listOfQuotes$ = this.quotesService.getSeveralRandomQuotes();
   }
 
 

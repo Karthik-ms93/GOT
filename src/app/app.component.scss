@@ -1,3 +1,6 @@
+body {
+    margin: 1rem;
+}
 
 .header{
     text-align: center;
@@ -11,15 +14,15 @@
 .items{
     margin:auto;
     height: 35px;
-    width: 800px;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.button {
+.navigation-button {
     box-shadow: inset 0 1px 0 0 #ffffff;
-    background: #94a5a8 ;
+    background: #7d9499 ;
     border-radius: 6px;
     border: 1px solid #080808;
     display: inline-block;
