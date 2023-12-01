@@ -1,37 +1,29 @@
-<div class="card" >
-    <mat-card class="card-one">
-        <mat-card-header>
-          <mat-card-title>Below is the list of Houses</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-            <mat-list>
-                <mat-list-item *ngFor = "let house of listOfHouses$ | async">
-                    <span>
-                        <button 
-                            mat-button 
-                            (click)="showTheDetailsOfHouse(house)">{{house.name}}
-                        </button>
-                    </span> 
-                </mat-list-item>
-            </mat-list>
-        </mat-card-actions>
-    </mat-card>
-    
-    <mat-card *ngIf="showDetailsOfaHouse" class="card-of-details">
-        <mat-card-header>
-          <mat-card-title>House details:</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-            <mat-list>
-                <mat-list-item>{{houseSelected.name}} has</mat-list-item>
-                <mat-list-item 
-                    *ngFor = "let member of houseSelected.members">
+<div class="card-wrapper" >
+    <div class="card">
+        <h2 class="heading">Below is the list of Houses</h2>
+        <mat-list>
+            <mat-list-item *ngFor = "let house of listOfHouses$ | async">
+                <span>
                     <button 
-                        mat-button
-                        (click)="showTheDetailsOfCharacter(member)">{{member.name}}</button> 
-                </mat-list-item>
-            </mat-list>
-        </mat-card-actions>
+                        mat-button 
+                        (click)="showTheDetailsOfHouse(house)">{{house.name}}
+                    </button>
+                </span> 
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <div class="card" *ngIf="showDetailsOfaHouse">
+        <h2 class="heading">House details:</h2>
+        <mat-list>
+            <mat-list-item>{{houseSelected.name}} has</mat-list-item>
+            <mat-list-item 
+                *ngFor = "let member of houseSelected.members">
+                <button 
+                    mat-button
+                    (click)="showTheDetailsOfCharacter(member)">{{member.name}}</button> 
+            </mat-list-item>
+        </mat-list>
         <div class="button-wrapper">
             <button
                 mat-button
@@ -39,25 +31,22 @@
                 (click)="cancelTheDetailsOfHouse()"> Cancel
             </button>
         </div>
-    </mat-card>
-    <mat-card *ngIf="showDetailsOfaCharacter">
-        <mat-card-header>
-            <mat-card-title>Character details:</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-              <mat-list>
-                  <mat-list-item><b>Name:</b> {{personSelected.name}}</mat-list-item>
-                  <mat-list-item *ngIf = "personSelected.house"><b>House:</b> {{personSelected.house? personSelected.house.name : ''}}</mat-list-item>
-                  <mat-list-item *ngIf = "personSelected.quotes"> <b>Quotes:</b> </mat-list-item>
-                  <mat-list-item *ngFor = "let quote of personSelected.quotes">  {{quote}}</mat-list-item>
-              </mat-list>
-          </mat-card-actions>
-          <div class="button-wrapper">
+    </div>
+    <div class="card" *ngIf="showDetailsOfaCharacter">
+        <h2 class="heading">Character details:</h2>
+        <mat-list>
+            <mat-list-item><b>Name:</b> {{personSelected.name}}</mat-list-item>
+            <mat-list-item *ngIf = "personSelected.house"><b>House:</b> {{personSelected.house? personSelected.house.name : ''}}</mat-list-item>
+            <mat-list-item *ngIf = "personSelected.quotes"> <b>Quotes:</b> </mat-list-item>
+            <mat-list-item *ngFor = "let quote of personSelected.quotes">  {{quote}}</mat-list-item>      
+        </mat-list>  
+        <div class="button-wrapper">
             <button
                 mat-button
                 class="button"
                 (click)="cancelTheDetailsOfCharacter()"> Cancel
             </button>
-          </div>
-    </mat-card>
+        </div>  
+    </div>
+    
 </div>

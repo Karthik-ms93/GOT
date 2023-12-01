@@ -44,6 +44,7 @@ export class HousesComponent {
 
   showTheDetailsOfHouse(house:any){
     this.showDetailsOfaHouse = true;
+    this.showDetailsOfaCharacter = false;
     this.houseSelected = house;
   }
 

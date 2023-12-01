@@ -1,42 +1,38 @@
 <div class="card-wrapper">
     <div class="card-one">
-        <h2 class="heading">Below is the list of Characters</h2>        
-            <mat-list>
-                <mat-list-item *ngFor = "let character of listOfCharacters$ | async">
-                    <span *ngIf="character.house" >
-                        <button 
-                            mat-button 
-                            (click)="showTheDetailsOfCharacter(character)">{{character.name}}
-                        </button> from {{character.house.slug}} 
-                    </span> 
-                    <span *ngIf="!character.house" >
-                        <button 
-                            mat-button 
-                            (click)="showTheDetailsOfCharacter(character)">{{character.name}}
-                        </button>    
-                    </span>
-                </mat-list-item>
-            </mat-list>
+        <h2 class="heading">Below is the list of Characters</h2>
+        <mat-list>
+            <mat-list-item *ngFor = "let character of listOfCharacters$ | async">
+                <span *ngIf="character.house" >
+                    <button 
+                        mat-button 
+                        (click)="showTheDetailsOfCharacter(character)">{{character.name}}
+                    </button> from {{character.house.slug}} 
+                </span> 
+                <span *ngIf="!character.house" >
+                    <button 
+                        mat-button 
+                        (click)="showTheDetailsOfCharacter(character)">{{character.name}}
+                    </button>    
+                </span>
+            </mat-list-item>
+        </mat-list>
     </div>
     
-    <mat-card *ngIf="showDetailsOfaCharacter" class="card-of-details">
-        <mat-card-header>
-          <mat-card-title>Character details:</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-            <mat-list>
-                <mat-list-item><b>Name:</b> {{personSelected.name}}</mat-list-item>
-                <mat-list-item *ngIf = "personSelected.house">
-                    <b>House:</b> 
-                    <button 
-                        mat-button
-                        (click)="showTheDetailsOfHouse(personSelected.house)">{{personSelected.house? personSelected.house.name : ''}}
-                    </button>
-                </mat-list-item>
-                <mat-list-item *ngIf = "personSelected.quotes"> <b>Quote:</b> </mat-list-item>
-                <mat-list-item *ngFor = "let quote of personSelected.quotes">  {{quote}}</mat-list-item>
-            </mat-list>
-        </mat-card-actions>
+    <div *ngIf="showDetailsOfaCharacter" class="card">
+        <h2 class="heading">Character details:</h2>
+        <mat-list>
+            <mat-list-item><b>Name:</b> {{personSelected.name}}</mat-list-item>
+            <mat-list-item *ngIf = "personSelected.house">
+                <b>House:</b> 
+                <button 
+                    mat-button
+                    (click)="showTheDetailsOfHouse(personSelected.house)">{{personSelected.house? personSelected.house.name : ''}}
+                </button>
+            </mat-list-item>
+            <mat-list-item *ngIf = "personSelected.quotes"> <b>Quote:</b> </mat-list-item>
+            <mat-list-item *ngFor = "let quote of personSelected.quotes">  {{quote}}</mat-list-item>
+        </mat-list>
         <div class="button-wrapper">
             <button 
                 mat-button 
@@ -50,22 +46,17 @@
                 (click)="cancelTheDetailsOfPerson()"> Cancel
             </button>
         </div>
-        
-    </mat-card>
+    </div>
 
-    <mat-card *ngIf="showDetailsOfaHouse" class="card-of-details">
-        <mat-card-header>
-          <mat-card-title>House details:</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-            <mat-list>
-                <mat-list-item>{{houseSelected.name}} has</mat-list-item>
-                <mat-list-item 
-                    *ngFor = "let member of houseSelected.members">
-                    {{member.name}}
-                </mat-list-item>
-            </mat-list>
-        </mat-card-actions>
+    <div *ngIf="showDetailsOfaHouse" class="card">
+        <h2 class="heading">House details:</h2>
+        <mat-list>
+            <mat-list-item>{{houseSelected.name}} has</mat-list-item>
+            <mat-list-item 
+                *ngFor = "let member of houseSelected.members">
+                {{member.name}}
+            </mat-list-item>
+        </mat-list>
         <div class="button-wrapper">
             <button
                 mat-button
@@ -73,5 +64,5 @@
                 (click)="cancelTheDetailsOfHouse()"> Cancel
             </button>
         </div>
-    </mat-card>
+    </div>
 </div>

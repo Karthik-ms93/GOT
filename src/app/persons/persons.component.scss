@@ -4,22 +4,22 @@
     justify-content: center;
     gap: 1rem;
     height: 100%;
-    
 }
 
-mat-card {
-    background-color: #678186;
-    border: 1px solid #080808;
-    height: fit-content;
-}
-
-.card-one{
-    background-color: #678186;
-    width: 25%;
-    height: 40%;
-    overflow:auto;
+.card {
+    width:fit-content;
+    height:fit-content;
     border: 1px solid #000000;
     border-radius: 4px;
+    background-color: #678186;
+}
+
+.card-one {
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #678186;
+    height: 40%;
+    overflow: auto;
 }
 
 .heading{
@@ -31,3 +31,4 @@ mat-card {
     background-color: #88a7ad; 
     color: black 
   }
+

@@ -16,3 +16,20 @@ body {
         flex-direction: column;
         gap: 4px    
 }
+
+::-webkit-scrollbar {
+        width: 12px; 
+        border-radius: 2px;
+        }
+      
+/* Handle on scrollbar */
+::-webkit-scrollbar-thumb {
+        background-color: #4b5e62;
+        border-radius: 10px; 
+      }
+      
+/* Track */
+::-webkit-scrollbar-track {
+        background: #678186;
+        border-radius: 4px;
+      }
