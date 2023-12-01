@@ -26,9 +26,6 @@ export class QuotesComponent {
 
   ngOnInit() {    
     this.listOfQuotes$ = this.quotesService.getSeveralRandomQuotes();  
-    this.listOfQuotes$.subscribe(Quotes => {
-       console.log(Quotes); 
-    })
   }
 
   getNextRandomQuotes() {

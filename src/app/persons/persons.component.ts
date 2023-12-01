@@ -48,7 +48,6 @@ export class PersonsComponent {
     this.showDetailsOfaCharacter = true;
     this.showDetailsOfaHouse = false;
     this.quotesofSelectedPeron = person.quotes;
-    console.log(this.quotesofSelectedPeron);
     this.personSelected = person;
     this.currentIndex = 0;
     this.getOtherQuote();
